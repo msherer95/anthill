@@ -51,11 +51,11 @@ const Template: Story<ButtonProps> = (props: ButtonProps) =>
       <div class={styles.section}>
         <h3 class={styles.title}>Types</h3>
         <div class={styles.row}>
-          <ButtonComponent type="primary">Primary</ButtonComponent>
-          <ButtonComponent type="default">Default</ButtonComponent>
-          <ButtonComponent type="dashed">Dashed</ButtonComponent>
-          <ButtonComponent type="text">Text</ButtonComponent>
-          <ButtonComponent type="link">Link</ButtonComponent>
+          <ButtonComponent variant="primary">Primary</ButtonComponent>
+          <ButtonComponent variant="default">Default</ButtonComponent>
+          <ButtonComponent variant="dashed">Dashed</ButtonComponent>
+          <ButtonComponent variant="text">Text</ButtonComponent>
+          <ButtonComponent variant="link">Link</ButtonComponent>
         </div>
       </div>
       <div class={styles.section}>
@@ -83,20 +83,20 @@ const Template: Story<ButtonProps> = (props: ButtonProps) =>
           <ButtonComponent
             icon={<PowerIcon />}
             loading={loading1()}
-            onClick={() => setLoading1(true)}
+            onPress={() => setLoading1(true)}
           >
             Click me!
           </ButtonComponent>
           <ButtonComponent
             loading={loading2()}
-            onClick={() => setLoading2(true)}
+            onPress={() => setLoading2(true)}
           >
             Click me!
           </ButtonComponent>
           <ButtonComponent
             icon={<PowerIcon />}
             loading={loading3()}
-            onClick={() => setLoading3(true)}
+            onPress={() => setLoading3(true)}
           ></ButtonComponent>
         </div>
       </div>
@@ -107,10 +107,10 @@ const Template: Story<ButtonProps> = (props: ButtonProps) =>
           style={{ "background-color": "#cbcbcb", padding: "20px" }}
         >
           <ButtonComponent ghost>Ghost Primary</ButtonComponent>
-          <ButtonComponent ghost type="default">
+          <ButtonComponent ghost variant="default">
             Ghost Default
           </ButtonComponent>
-          <ButtonComponent ghost type="dashed">
+          <ButtonComponent ghost variant="dashed">
             Ghost Dashed
           </ButtonComponent>
         </div>
@@ -131,6 +131,6 @@ const Template: Story<ButtonProps> = (props: ButtonProps) =>
 export const Button = Template.bind({});
 Button.args = {
   children: "Button",
-  type: "primary",
+  variant: "primary",
   disableWave: false,
 };

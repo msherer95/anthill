@@ -60,7 +60,7 @@
     cursor: initial;
   }
 
-  &.type-primary {
+  &.variant-primary {
     text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
     background-color: var(--ant-primary-color);
     box-shadow: 0 2px #0000000b;
@@ -94,19 +94,19 @@
     }
   }
 
-  &.type-default {
+  &.variant-default {
     box-shadow: 0 2px #0000000b;
   }
 
-  &.type-default,
-  &.type-dashed,
-  &.type-text {
+  &.variant-default,
+  &.variant-dashed,
+  &.variant-text {
     background-color: white;
     color: #000000d9;
   }
 
-  &.type-default,
-  &.type-dashed {
+  &.variant-default,
+  &.variant-dashed {
     border: 1px solid var(--ant-default-color);
 
     &:hover,
@@ -140,11 +140,11 @@
     }
   }
 
-  &.type-dashed {
+  &.variant-dashed {
     border-style: dashed;
   }
 
-  &.type-text {
+  &.variant-text {
 
     &:hover,
     &:focus {
@@ -156,7 +156,7 @@
     }
   }
 
-  &.type-link {
+  &.variant-link {
     background-color: transparent;
     color: var(--ant-primary-color);
 

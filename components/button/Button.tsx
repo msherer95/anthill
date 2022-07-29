@@ -1,3 +1,4 @@
+import { AriaButtonProps, createButton } from "@solid-aria/button";
 import { isNil } from "lodash";
 import { Component, JSX, mergeProps, splitProps } from "solid-js";
 import { StandardComponentProps as NativeComponentProps } from "../component.types";
@@ -6,22 +7,23 @@ import { useTheme } from "../theme/ThemeContext";
 import { Wave } from "../wave/Wave";
 import styles from "./Button.module.scss";
 
-export type ButtonProps = NativeComponentProps<HTMLButtonElement> & {
-  type?: "primary" | "default" | "dashed" | "text" | "link";
-  size?: "large" | "default" | "small";
-  shape?: "default" | "circle" | "round";
-  loading?: boolean;
-  ghost?: boolean;
-  block?: boolean;
-  icon?: JSX.Element;
-  disabled?: boolean;
-  children?: string | JSX.Element;
-  disableWave?: boolean;
-  iconGap?: number;
-};
+export type ButtonProps = AriaButtonProps &
+  NativeComponentProps<HTMLButtonElement> & {
+    variant?: "primary" | "default" | "dashed" | "text" | "link";
+    size?: "large" | "default" | "small";
+    shape?: "default" | "circle" | "round";
+    loading?: boolean;
+    ghost?: boolean;
+    block?: boolean;
+    icon?: JSX.Element;
+    disabled?: boolean;
+    children?: string | JSX.Element;
+    disableWave?: boolean;
+    iconGap?: number;
+  };
 
 const DEFAULT_BUTTON_PROPS: Partial<ButtonProps> = {
-  type: "primary",
+  variant: "primary",
   size: "default",
   shape: "default",
   loading: false,
@@ -36,7 +38,7 @@ const DEFAULT_BUTTON_PROPS: Partial<ButtonProps> = {
 const LOCAL_BUTTON_PROPS: Partial<keyof ButtonProps>[] = [
   "children",
   "class",
-  "type",
+  "variant",
   "size",
   "shape",
   "disableWave",
@@ -55,10 +57,13 @@ export const Button: Component<ButtonProps> = (props) => {
     LOCAL_BUTTON_PROPS
   );
 
+  let buttonRef: HTMLButtonElement | undefined;
+  const { buttonProps } = createButton(props, () => buttonRef);
+
   const shouldDisableWave = () =>
     localProps.disableWave ||
-    localProps.type === "text" ||
-    localProps.type === "link";
+    localProps.variant === "text" ||
+    localProps.variant === "link";
 
   const isIconOnly = () =>
     !isNil(localProps.icon) && isNil(localProps.children);
@@ -88,8 +93,10 @@ export const Button: Component<ButtonProps> = (props) => {
     <Wave color={theme.colors.primaryColor} disabled={shouldDisableWave()}>
       {
         <button
+          ref={buttonRef}
           classList={classList()}
           disabled={localProps.disabled || localProps.loading}
+          {...buttonProps}
           {...otherProps}
         >
           <span
