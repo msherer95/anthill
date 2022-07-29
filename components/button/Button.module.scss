@@ -1,0 +1,234 @@
+.Button {
+  display: inline-block;
+  font-family: var(--ant-font-family);
+  outline: none;
+  line-height: 1.5715;
+  border: none;
+  border-radius: 2px;
+  height: 32px;
+  width: auto;
+  padding: 0 15px;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 300ms var(--ant-ease-in-out);
+
+  &::before {
+    position: absolute;
+    inset: -1px;
+    z-index: 1;
+    background: #fff;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity .2s;
+    content: "";
+    pointer-events: none;
+  }
+
+  &.block {
+    width: 100%;
+  }
+
+  &.loading {
+    cursor: initial;
+
+    &::before {
+      opacity: 0.35;
+    }
+  }
+
+  &.iconOnly {
+    padding: 0;
+
+    &.size-large {
+      width: 40px;
+    }
+
+    &.size-default {
+      width: 32px;
+    }
+
+    &.size-small {
+      width: 24px;
+    }
+  }
+
+  &.disabled {
+    cursor: initial;
+  }
+
+  &.type-primary {
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+    background-color: var(--ant-primary-color);
+    box-shadow: 0 2px #0000000b;
+
+    &:hover,
+    &:focus {
+      background-color: var(--ant-primary-color-hover);
+    }
+
+    &:active {
+      background-color: var(--ant-primary-color-active);
+    }
+
+    &.ghost {
+      text-shadow: none;
+      border: 1px solid var(--ant-primary-color);
+      color: var(--ant-primary-color);
+
+      &:hover,
+      &:focus {
+        border-color: var(--ant-primary-color-hover);
+        color: var(--ant-primary-color-hover);
+        background-color: transparent;
+      }
+
+      &:active {
+        border-color: var(--ant-primary-color-active);
+        color: var(--ant-primary-color-active);
+        background-color: transparent;
+      }
+    }
+  }
+
+  &.type-default {
+    box-shadow: 0 2px #0000000b;
+  }
+
+  &.type-default,
+  &.type-dashed,
+  &.type-text {
+    background-color: white;
+    color: #000000d9;
+  }
+
+  &.type-default,
+  &.type-dashed {
+    border: 1px solid var(--ant-default-color);
+
+    &:hover,
+    &:focus {
+      color: var(--ant-primary-color-hover);
+      border-color: var(--ant-primary-color-hover);
+    }
+
+    &:active {
+      color: var(--ant-primary-color-active);
+      border-color: var(--ant-primary-color-active);
+    }
+
+    &.ghost {
+      text-shadow: none;
+      border-color: white;
+      color: white;
+
+      &:hover,
+      &:focus {
+        border-color: var(--ant-primary-color-hover);
+        color: var(--ant-primary-color-hover);
+        background-color: transparent;
+      }
+
+      &:active {
+        border-color: var(--ant-primary-color-active);
+        color: var(--ant-primary-color-active);
+        background-color: transparent;
+      }
+    }
+  }
+
+  &.type-dashed {
+    border-style: dashed;
+  }
+
+  &.type-text {
+
+    &:hover,
+    &:focus {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.027);
+    }
+  }
+
+  &.type-link {
+    background-color: transparent;
+    color: var(--ant-primary-color);
+
+    &:hover,
+    &:focus {
+      color: var(--ant-primary-color-hover);
+    }
+
+    &:active {
+      color: var(--ant-primary-color-active);
+    }
+  }
+
+  &.size-large {
+    height: 40px;
+  }
+
+  &.size-small {
+    height: 24px;
+    padding: 0 7px;
+  }
+
+  &.shape-circle {
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    &.size-large {
+      width: 40px;
+    }
+
+    &.size-default {
+      width: 32px;
+    }
+
+    &.size-small {
+      width: 24px;
+    }
+  }
+
+  &.shape-round {
+    &.size-large {
+      border-radius: 40px;
+    }
+
+    &.size-default {
+      border-radius: 32px;
+    }
+
+    &.size-small {
+      border-radius: 24px;
+    }
+  }
+
+  &.ghost {
+    background-color: transparent;
+  }
+
+  .spacer {
+    width: 0px;
+    transition: width 150ms var(--ant-ease-in-out);
+    display: inline-block;
+
+    &.loading {
+      width: 14px;
+    }
+  }
+
+  .buttonContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

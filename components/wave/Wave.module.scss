@@ -1,0 +1,23 @@
+.wave {
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  animation: fadeEffect var(--ant-wave-fade-effect-duration) var(--ant-wave-fade-effect-timing), waveEffect var(--ant-wave-wave-effect-duration) var(--ant-wave-wave-effect-timing);
+
+  @keyframes waveEffect {
+    100% {
+      box-shadow: 0 0 0 var(--ant-wave-width) var(--ant-wave-color);
+    }
+  }
+
+  @keyframes fadeEffect {
+    100% {
+      opacity: 0;
+    }
+  }
+}

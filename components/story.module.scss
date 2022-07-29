@@ -1,0 +1,22 @@
+.section {
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+  align-items: flex-start;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #efefef;
+  }
+}
+
+.title {
+  font-family: var(--ant-font-family);
+  margin-bottom: 15px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
